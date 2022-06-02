@@ -6,8 +6,8 @@ use App\Http\Controllers\BlogController;
 
 
 Route::get('/', function () {
-    return view('welcome')->name('home');
-});
+    return view('welcome');
+})->name('home');
 
 Route::get('/products', [BlogController::class, 'index'])->name('products');
 
