@@ -32,6 +32,5 @@
 <?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
 <?php endif; ?>
 
-
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /media/armin/New Volume1/blogg/onlineShop/shop/resources/views/dashboard.blade.php ENDPATH**/ ?>
