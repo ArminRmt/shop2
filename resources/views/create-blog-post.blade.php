@@ -1,4 +1,9 @@
 @extends('layout')
+@section('ckeditor')
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+
+@endsection
 
 @section('main')
 
@@ -10,30 +15,32 @@
         
         <!-- Contact Form -->
         <div class="contact-form">
-            {{-- {{ route('blog.store') }} post  enctype="multipart/form-data" --}}
-            <form action="" method="" >
-                {{-- @csrf --}}
+            <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
+                @csrf
 
                 <!-- Title -->
                 <label for="title"><span>Title</span></label>
-                {{-- value="{{ old('title') }}" --}}
-                <input type="text" id="title" name="title" />
+                <input type="text" id="title" name="title" value="{{ old('title') }}"/>
+                 @error('title')
+                    <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
+                 @enderror
+
 
                 <!-- Price -->
                 <label for="price"><span>Price</span></label>
-                {{-- value="{{ old('title') }}" --}}
-                <input type="text" id="price" name="price" />
+                <input type="text" id="price" name="price" value="{{ old('title') }}"/>
 
-                {{-- @error('title')
+                @error('price')
                     <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
-                @enderror --}}
+                @enderror
+
 
                 <!-- Image -->
                 <label for="image"><span>Image</span></label>
                 <input type="file" id="image" name="image" />
-                {{-- @error('image')
+                @error('image')
                     <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
-                @enderror --}}
+                @enderror
 
                 <!-- Drop down -->
                 {{-- <label for="categories"><span>Choose a category:</span></label>
@@ -47,13 +54,13 @@
                     <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
                 @enderror --}}
 
+
                 <!-- Body-->
                 <label for="body"><span>Body</span></label>
-                {{-- {{ old('body') }} --}}
-                <textarea id="body" name="body"></textarea>
-                {{-- @error('body')
+                <textarea id="body" name="body">{{ old('body') }}</textarea>
+                @error('body')
                     <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
-                @enderror --}}
+                @enderror
                 
                 <!-- Button -->
                 <input type="submit" value="Submit" />
@@ -66,3 +73,19 @@
 
 
 @endsection
+
+@section('ckeditor2')
+
+    {{-- ckeditor --}}
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#body' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+      </script>
+
+@endsection      

@@ -27,6 +27,9 @@
         <link rel="stylesheet" href = '{{asset('assets/css/owl.css')}}'>
         <link rel="stylesheet" href = '{{asset('assets/css/style.css')}}'>
 
+        {{-- ckeditor --}}
+        @yield('ckeditor')
+
 
   </head>
 
@@ -219,6 +222,9 @@
       }
     </script>
 
+
+
+    @yield('ckeditor2')
 
 
 

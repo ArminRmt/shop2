@@ -13,6 +13,9 @@ Route::get('/products', [BlogController::class, 'index'])->name('products');
 
 Route::get('/blog/create', [BlogController::class, 'create'])->name('create');
 
+// To store blog post to the DB
+Route::post('/blog', [BlogController::class, 'store'])->name('store');
+
 
 Route::get('/about', function () {
     return view('about');
