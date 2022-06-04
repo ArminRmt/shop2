@@ -11,6 +11,9 @@ Route::get('/', function () {
 
 Route::get('/products', [BlogController::class, 'index'])->name('products');
 
+Route::get('/blog/create', [BlogController::class, 'create'])->name('create');
+
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');

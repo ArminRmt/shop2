@@ -10,4 +10,10 @@ class BlogController extends Controller
     {
         return view('products');
     }
+
+    public function create(){
+        // $categories = Category::all();
+        // return view('blogPosts.create-blog-post', compact('categories'));
+        return view('create-blog-post');
+    }
 }

@@ -25,6 +25,8 @@
         <link rel="stylesheet" href = '{{asset('assets/css/fontawesome.css')}}'>
         <link rel="stylesheet" href = '{{asset('assets/css/templatemo-sixteen.css')}}'>
         <link rel="stylesheet" href = '{{asset('assets/css/owl.css')}}'>
+        <link rel="stylesheet" href = '{{asset('assets/css/style.css')}}'>
+
 
   </head>
 
@@ -70,6 +72,11 @@
                 <a class="nav-link {{Request::routeIs('register') ? 'active' : ''}}" href="{{route('register')}}">Register</a>
               </li>
             @endguest
+            @auth
+            <li class="nav-item">
+              <a class="nav-link {{Request::routeIs('dashboard') ? 'active' : ''}}" href="{{route('dashboard')}}">dashboard</a>
+            </li>
+            @endauth
           </ul>
         </div>
       </div>
