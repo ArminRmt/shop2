@@ -33,13 +33,16 @@
           <div class="col-md-12">
             <div class="filters-content">
                 <div class="row grid">
+
+                  @foreach($posts as $post)
+
                     <div class="col-lg-4 col-md-4 all des">
                       <div class="product-item">
-                        <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
+                        <a href="{{route('show', $post)}}"><img src="{{asset($post->imagePath)}}" alt=""></a>
                         <div class="down-content">
-                          <a href="#"><h4>Tittle goes here</h4></a>
-                          <h6>$18.25</h6>
-                          <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                          <a href="#"><h4>{{$post->title}}</h4></a>
+                          <h6>{{$post->price}}</h6>
+                          <p>{{$post->body}}</p>
                           <ul class="stars">
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
@@ -47,10 +50,17 @@
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                           </ul>
-                          <span>Reviews (12)</span>
+                          <span>{{$post->created_at->diffForHumans()}}</span>
                         </div>
                       </div>
                     </div>
+
+                  @endforeach
+
+
+
+{{--                   
+
                     <div class="col-lg-4 col-md-4 all dev">
                       <div class="product-item">
                         <a href="#"><img src="assets/images/product_02.jpg" alt=""></a>
@@ -69,6 +79,7 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="col-lg-4 col-md-4 all gra">
                       <div class="product-item">
                         <a href="#"><img src="assets/images/product_03.jpg" alt=""></a>
@@ -87,6 +98,8 @@
                         </div>
                       </div>
                     </div>
+
+
                     <div class="col-lg-4 col-md-4 all gra">
                       <div class="product-item">
                         <a href="#"><img src="assets/images/product_04.jpg" alt=""></a>
@@ -105,6 +118,8 @@
                         </div>
                       </div>
                     </div>
+
+
                     <div class="col-lg-4 col-md-4 all dev">
                       <div class="product-item">
                         <a href="#"><img src="assets/images/product_05.jpg" alt=""></a>
@@ -123,6 +138,8 @@
                         </div>
                       </div>
                     </div>
+
+
                     <div class="col-lg-4 col-md-4 all des">
                       <div class="product-item">
                         <a href="#"><img src="assets/images/product_06.jpg" alt=""></a>
@@ -140,7 +157,8 @@
                           <span>Reviews (72)</span>
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
+
                 </div>
             </div>
           </div>
