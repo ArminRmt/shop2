@@ -4,6 +4,7 @@
     <!-- main -->
     <main class="container">
       <section class="single-blog-post">
+        <br>
         <h1>{{$post->title}}</h1>
 
         <p class="time-and-author">
@@ -33,6 +34,7 @@
         </a>
         @endforeach --}}
         </div>
+        <br>
       </section>
     </main>
 @endsection

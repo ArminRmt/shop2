@@ -42,7 +42,7 @@
                         <div class="down-content">
                           <a href="#"><h4>{{$post->title}}</h4></a>
                           <h6>{{$post->price}}</h6>
-                          <p>{{$post->body}}</p>
+                          <p>{!!$post->body!!}</p>
                           <ul class="stars">
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
@@ -174,6 +174,7 @@
         </div>
       </div>
     </div>
+    <br>
     
   @endsection
     

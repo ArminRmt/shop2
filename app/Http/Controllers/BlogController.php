@@ -10,6 +10,12 @@ class BlogController extends Controller
 {
 
 
+    public function __construct()
+    {
+       $this->middleware('auth')->except(['index', 'show']);
+    }
+
+
     public function index()
     {
         // if($request->search){
@@ -23,7 +29,7 @@ class BlogController extends Controller
         // }
 
         // $categories = Category::all();
-        $posts = Post::all();
+        $posts = Post::latest()->get();
         return view('products', compact('posts'));
     }
 
@@ -49,14 +55,14 @@ class BlogController extends Controller
         $price = $request->input('price');
         // $category_id = $request->input('category_id');
         
-        // if(Post::latest()->first() !== null){
-        //  $postId = Post::latest()->first()->id + 1;
-        // } else{
-        //     $postId = 1;
-        // }
+        if(Post::latest()->first() !== null){
+         $postId = Post::latest()->first()->id + 1;
+        } else{
+            $postId = 1;
+        }
  
-        // . '-' . $postId
-        $slug = Str::slug($title, '-');
+        
+        $slug = Str::slug($title, '-'). '-' . $postId;
         // $user_id = Auth::user()->id;
         $body = $request->input('body');
  
@@ -86,9 +92,7 @@ class BlogController extends Controller
     //     return view('blogPosts.single-blog-post', compact('post', 'relatedPosts'));
     // }
 
-    public function show($slug){
-
-        $post = Post::where('slug', $slug)->first();
+    public function show(Post $post){
         return view('single-blog-post', compact('post'));
     }
 

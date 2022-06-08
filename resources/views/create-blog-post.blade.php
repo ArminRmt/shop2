@@ -66,7 +66,7 @@
                 <label for="body"><span>Body</span></label>
                 <textarea id="body" name="body">{{ old('body') }}</textarea>
                 @error('body')
-                    <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
+                    <p style="color: red; margin-bottom:25px;">{{$message}}</p>
                 @enderror
                 
                 <!-- Button -->
