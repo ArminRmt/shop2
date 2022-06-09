@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('imagePath');
             $table->string('title');
             $table->string('slug');
-            $table->string('price');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('body');
             $table->timestamps();
         });

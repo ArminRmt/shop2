@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class BlogController extends Controller
@@ -47,12 +49,10 @@ class BlogController extends Controller
             'title' => 'required',
             'image' => 'required | image',
             'body' => 'required',
-            'price' => 'required',
             // 'category_id' => 'required'
         ]);
         
         $title = $request->input('title');
-        $price = $request->input('price');
         // $category_id = $request->input('category_id');
         
         if(Post::latest()->first() !== null){
@@ -63,7 +63,7 @@ class BlogController extends Controller
  
         
         $slug = Str::slug($title, '-'). '-' . $postId;
-        // $user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
         $body = $request->input('body');
  
         //File upload
@@ -73,9 +73,8 @@ class BlogController extends Controller
         $post->title = $title;
         // $post->category_id = $category_id;
         $post->slug = $slug;
-        // $post->user_id = $user_id;
+        $post->user_id = $user_id;
         $post->body = $body;
-        $post->price = $price;
         $post->imagePath = $imagePath;
  
         $post->save();
@@ -96,8 +95,50 @@ class BlogController extends Controller
         return view('single-blog-post', compact('post'));
     }
 
-    // public function destroy(Post $post){
-    //     $post->delete();
-    //     return redirect()->back()->with('status', 'Post Delete Successfully');
-    // }
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect()->back()->with('status', 'Post Delete Successfully');
+    }
+
+
+    public function edit(Post $post){
+        if(auth()->user()->id !== $post->user->id){
+            abort(403);
+        }
+        return view('post_edit', compact('post'));
+    }
+
+
+
+    public function update(Request $request, Post $post){
+        if(auth()->user()->id !== $post->user->id){
+            abort(403);
+        }
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required | image',
+            'body' => 'required'
+        ]);
+        
+        $title = $request->input('title');
+
+ 
+        $postId = $post->id;
+        $slug = Str::slug($title, '-') . '-' . $postId;
+        $body = $request->input('body');
+        
+ 
+        //File upload
+        $imagePath = 'storage/' . $request->file('image')->store('postsImages', 'public');
+ 
+        
+        $post->title = $title;
+        $post->slug = $slug;
+        $post->body = $body;
+        $post->imagePath = $imagePath;
+ 
+        $post->save();
+        
+        return redirect()->back()->with('status', 'Post Edited Successfully');
+    }
 }

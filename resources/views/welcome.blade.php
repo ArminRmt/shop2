@@ -49,11 +49,11 @@
 
                 <div class="col-md-4">
                   <div class="product-item">
-                    <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
+                    <a href="{{route('show', $post)}}"><img src="{{asset($post->imagePath)}}" alt=""></a>
                     <div class="down-content">
-                      <a href="#"><h4>Tittle goes here</h4></a>
-                      <h6>$25.75</h6>
-                      <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                      <a href="#"><h4>{{$post->title}}</h4></a>
+                      <h6>By {{ $post->user->name }}</h6>
+                      <p>{!!$post->body!!}</p>
                       <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>

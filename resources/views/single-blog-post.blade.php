@@ -9,7 +9,7 @@
 
         <p class="time-and-author">
           {{$post->created_at->diffForHumans()}}
-          <span>{{$post->price}}</span>
+          <span>{{$post->user->name}}</span>
         </p>
 
         <div class="single-blog-post-ContentImage" data-aos="fade-left">

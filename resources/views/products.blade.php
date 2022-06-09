@@ -41,16 +41,30 @@
                         <a href="{{route('show', $post)}}"><img src="{{asset($post->imagePath)}}" alt=""></a>
                         <div class="down-content">
                           <a href="#"><h4>{{$post->title}}</h4></a>
-                          <h6>{{$post->price}}</h6>
+                          <h6>Written By {{ $post->user->name }}</h6>
                           <p>{!!$post->body!!}</p>
-                          <ul class="stars">
+                          {{-- <ul class="stars">
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star"></i></li>
-                          </ul>
+                          </ul> --}}
                           <span>{{$post->created_at->diffForHumans()}}</span>
+                          <span></span>
+
+                          @auth
+                            @if (auth()->user()->id === $post->user->id)
+                                <div class="post-buttons">
+                                    <a href="{{ route('edit', $post) }}">Edit</a>
+                                    <form action="{{ route('destroy', $post) }}" method="post">
+                                      @csrf
+                                      @method('delete')
+                                      <input type="submit" value=" Delete">
+                                  </form>
+                                </div>
+                            @endif
+                          @endauth
                         </div>
                       </div>
                     </div>
