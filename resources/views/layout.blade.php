@@ -13,13 +13,12 @@
 
         <!-- Bootstrap core CSS -->
         <link href = '{{asset('vendor/bootstrap/css/bootstrap.min.css')}}' rel="stylesheet">
-        <!--
+        
 
-        TemplateMo 546 Sixteen Clothing
+        <!-- Tailwind CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css">
 
-        https://templatemo.com/tm-546-sixteen-clothing
 
-        -->
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href = '{{asset('assets/css/fontawesome.css')}}'>

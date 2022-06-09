@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+// use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 
@@ -18,20 +19,20 @@ class BlogController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        // if($request->search){
-        //     $posts = Post::where('title', 'like', '%' . $request->search . '%')
-        //     ->orWhere('body', 'like', '%' . $request->search . '%')->latest()->paginate(4);
-        // } elseif($request->category){
+        if($request->search){
+            $posts = Post::where('title', 'like', '%' . $request->search . '%')
+            ->orWhere('body', 'like', '%' . $request->search . '%')->latest()->paginate(1);
+        } 
+        // elseif($request->category){
         //     $posts = Category::where('name', $request->category)->firstOrFail()->posts()->paginate(3)->withQueryString();
         // }
-        // else{
-        //     $posts = Post::latest()->paginate(4);
-        // }
+        else{
+            $posts = Post::latest()->paginate(1);
+        }
 
         // $categories = Category::all();
-        $posts = Post::latest()->get();
         return view('products', compact('posts'));
     }
 
