@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-// use App\Models\Category;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,8 +32,8 @@ class BlogController extends Controller
             $posts = Post::latest()->paginate(1);
         }
 
-        // $categories = Category::all();
-        return view('products', compact('posts'));
+        $categories = Category::all();
+        return view('products', compact('posts', 'categories'));
     }
 
 

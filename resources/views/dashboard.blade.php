@@ -15,10 +15,10 @@
                         <div class="dashboard">
                             <ul>
                                 <li><a href="{{route('create')}}">Create Post</a></li>
-                                {{-- {{route('categories.create')}} --}}
-                                <li><a href="">Create Category</a></li>
-                                {{-- {{route('categories.index')}} --}}
-                                <li><a href="">Categories List</a></li>
+                                
+                                <li><a href="{{route('categories.create')}}">Create Category</a></li>
+                                
+                                <li><a href="{{route('categories.index')}}">Categories List</a></li>
                             </ul>
                         </div>
                     </div>

@@ -35,10 +35,13 @@
                       </form>
                   </div>
                 </li>
-                  <li class="active" data-filter="*">All Products</li>
+                @foreach ($categories as $category)
+                  <li data-filter=".dev">{{$category->name}}</li>
+                @endforeach
+                  {{-- <li class="active" data-filter="*">All Products</li>
                   <li data-filter=".des">Featured</li>
                   <li data-filter=".dev">Flash Deals</li>
-                  <li data-filter=".gra">Last Minute</li>
+                  <li data-filter=".gra">Last Minute</li> --}}
               </ul>
             </div>
           </div>
