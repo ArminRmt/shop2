@@ -11,14 +11,7 @@
 <main class="container" style="background-color: #fff;">
     <section id="contact-us">
         <h1 style="padding-top: 50px;">Create New Post!</h1>
-
-        {{-- post created successfully --}}
-        {{-- @if(session('status'))
-            <p>{{session}}</p>
-        @endif --}}
-
-
-        {{-- @include('includes.flash-message') --}}
+        @include('includes.flash-message')
         
         <!-- Contact Form -->
         <div class="contact-form">
@@ -41,7 +34,7 @@
                 @enderror
 
                 <!-- Drop down -->
-                {{-- <label for="categories"><span>Choose a category:</span></label>
+                <label for="categories"><span>Choose a category:</span></label>
                 <select name="category_id" id="categories">
                     <option selected disabled>Select option </option>
                     @foreach ($categories as $category)
@@ -50,7 +43,7 @@
                 </select>
                 @error('category_id')
                     <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
-                @enderror --}}
+                @enderror
 
 
                 <!-- Body-->

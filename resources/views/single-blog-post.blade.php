@@ -23,7 +23,7 @@
       <section class="recommended">
         <p>Related</p>
         <div class="recommended-cards">
-        {{-- @foreach ($relatedPosts as $relatedPost )
+        @foreach ($relatedPosts as $relatedPost )
         <a href="">
           <div class="recommended-card">
             <img src="{{asset($relatedPost->imagePath)}}" alt="" loading="lazy" />
@@ -32,7 +32,7 @@
             </h4>
           </div>
         </a>
-        @endforeach --}}
+        @endforeach
         </div>
         <br>
       </section>

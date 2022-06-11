@@ -64,7 +64,7 @@
               <a class="nav-link {{Request::routeIs('about') ? 'active' : ''}}" href="{{route('about')}}">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{Request::routeIs('contact') ? 'active' : ''}}" href="{{route('contact')}}">Contact Us</a>
+              <a class="nav-link {{Request::routeIs('contact.index') ? 'active' : ''}}" href="{{route('contact.index')}}">Contact Us</a>
             </li>
             @guest
               <li class="nav-item">

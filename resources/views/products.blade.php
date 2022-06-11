@@ -36,7 +36,7 @@
                   </div>
                 </li>
                 @foreach ($categories as $category)
-                  <li data-filter=".dev">{{$category->name}}</li>
+                  <li><a href="{{route('products', ['category' => $category->name ])}}">{{ $category->name }}</a></li>
                 @endforeach
                   {{-- <li class="active" data-filter="*">All Products</li>
                   <li data-filter=".des">Featured</li>

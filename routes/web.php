@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Models\Category;
 
 
@@ -49,15 +50,20 @@ Route::resource('/categories', CategoryController::class);
 // Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 // Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
+// To contact page
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+// To Send data to email.
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contact');
 
 
 Route::get('/dashboard', function () {

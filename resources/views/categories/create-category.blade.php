@@ -12,14 +12,7 @@
 <main class="container" style="background-color: #fff;">
     <section id="contact-us">
         <h1 style="padding-top: 50px;">Create New Category!</h1>
-
-        {{-- post created successfully --}}
-        {{-- @if(session('status'))
-            <p>{{session}}</p>
-        @endif --}}
-
-
-        {{-- @include('includes.flash-message') --}}
+        @include('includes.flash-message')
         
         <!-- Contact Form -->
         <div class="contact-form">

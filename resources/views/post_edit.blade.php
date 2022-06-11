@@ -11,8 +11,7 @@
 <main class="container" style="background-color: #fff;">
     <section id="contact-us">
         <h1 style="padding-top: 50px;">Edit Post!</h1>
-
-        {{-- @include('includes.flash-message') --}}
+        @include('includes.flash-message')
         
         <!-- Contact Form -->
         <div class="contact-form">

@@ -23,13 +23,13 @@ class BlogController extends Controller
     {
         if($request->search){
             $posts = Post::where('title', 'like', '%' . $request->search . '%')
-            ->orWhere('body', 'like', '%' . $request->search . '%')->latest()->paginate(1);
+            ->orWhere('body', 'like', '%' . $request->search . '%')->latest()->paginate(3);
         } 
-        // elseif($request->category){
-        //     $posts = Category::where('name', $request->category)->firstOrFail()->posts()->paginate(3)->withQueryString();
-        // }
+        elseif($request->category){
+            $posts = Category::where('name', $request->category)->firstOrFail()->posts()->paginate(3)->withQueryString();
+        }
         else{
-            $posts = Post::latest()->paginate(1);
+            $posts = Post::latest()->paginate(3);
         }
 
         $categories = Category::all();
@@ -39,22 +39,22 @@ class BlogController extends Controller
 
 
     public function create(){
-        // $categories = Category::all();
-        // return view('blogPosts.create-blog-post', compact('categories'));
-        return view('create-blog-post');
+        $categories = Category::all();
+        return view('create-blog-post', compact('categories'));
     }
 
     public function store(Request $request){
         
+          
         $request->validate([
             'title' => 'required',
             'image' => 'required | image',
             'body' => 'required',
-            // 'category_id' => 'required'
+            'category_id' => 'required'
         ]);
         
         $title = $request->input('title');
-        // $category_id = $request->input('category_id');
+        $category_id = $request->input('category_id');
         
         if(Post::latest()->first() !== null){
          $postId = Post::latest()->first()->id + 1;
@@ -62,8 +62,7 @@ class BlogController extends Controller
             $postId = 1;
         }
  
-        
-        $slug = Str::slug($title, '-'). '-' . $postId;
+        $slug = Str::slug($title, '-') . '-' . $postId;
         $user_id = Auth::user()->id;
         $body = $request->input('body');
  
@@ -72,7 +71,7 @@ class BlogController extends Controller
  
         $post = new Post();
         $post->title = $title;
-        // $post->category_id = $category_id;
+        $post->category_id = $category_id;
         $post->slug = $slug;
         $post->user_id = $user_id;
         $post->body = $body;
@@ -85,16 +84,14 @@ class BlogController extends Controller
 
 
 
-    //  public function show(Post $post){
-    //     $category = $post->category;
-
-    //     $relatedPosts = $category->posts()->where('id', '!=', $post->id)->latest()->take(3)->get();
-    //     return view('blogPosts.single-blog-post', compact('post', 'relatedPosts'));
-    // }
-
     public function show(Post $post){
-        return view('single-blog-post', compact('post'));
+
+        // relative posts in single_post_page
+        $category = $post->category;
+        $relatedPosts = $category->posts()->where('id', '!=', $post->id)->latest()->take(3)->get();
+        return view('single-blog-post', compact('post', 'relatedPosts'));
     }
+
 
     public function destroy(Post $post){
         $post->delete();
