@@ -154,7 +154,10 @@ return [
 
         'image' => [
             'image' => 'The file must be an image.'
-        ]
+        ],
+
+  
+       
     ],
 
     /*
