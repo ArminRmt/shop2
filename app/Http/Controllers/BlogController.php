@@ -43,6 +43,8 @@ class BlogController extends Controller
         return view('create-blog-post', compact('categories'));
     }
 
+
+
     public function store(Request $request){
         
           
@@ -84,6 +86,7 @@ class BlogController extends Controller
 
 
 
+
     public function show(Post $post){
 
         // relative posts in single_post_page
@@ -93,10 +96,12 @@ class BlogController extends Controller
     }
 
 
+
     public function destroy(Post $post){
         $post->delete();
         return redirect()->back()->with('status', 'Post Delete Successfully');
     }
+
 
 
     public function edit(Post $post){
@@ -107,6 +112,7 @@ class BlogController extends Controller
     }
 
 
+    
 
     public function update(Request $request, Post $post){
         if(auth()->user()->id !== $post->user->id){

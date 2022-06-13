@@ -98,20 +98,20 @@
                 <div class="row">
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">ALi</h5>
+                    <h5 class="text-uppercase">COMPANY NAME</h5>
         
                     <ul class="list-unstyled mb-0">
                     <li>
-                        <a href="#!" class="text-white">Link</a>
+                        <a href="#!" class="text-white">Groupon</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link</a>
+                        <a href="#!" class="text-white">Influitive</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link</a>
+                        <a href="#!" class="text-white">Omnilert</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link</a>
+                        <a href="#!" class="text-white">google</a>
                     </li>
                     </ul>
                 </div>
@@ -123,16 +123,16 @@
         
                     <ul class="list-unstyled mb-0">
                     <li>
-                        <a href="#!" class="text-white">Link 1</a>
+                        <a href="#!" class="text-white">laravel</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 2</a>
+                        <a href="#!" class="text-white">MDWordPress</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 3</a>
+                        <a href="#!" class="text-white">bootstrap</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 4</a>
+                        <a href="#!" class="text-white">tailwind</a>
                     </li>
                     </ul>
                 </div>
@@ -144,16 +144,16 @@
         
                     <ul class="list-unstyled mb-0">
                     <li>
-                        <a href="#!" class="text-white">Link 1</a>
+                        <a href="#!" class="text-white">Your Account</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 2</a>
+                        <a href="#!" class="text-white">Become an Affiliate</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 3</a>
+                        <a href="#!" class="text-white">Shipping Rates</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 4</a>
+                        <a href="#!" class="text-white">Help</a>
                     </li>
                     </ul>
                 </div>
@@ -165,16 +165,16 @@
         
                     <ul class="list-unstyled mb-0">
                     <li>
-                        <a href="#!" class="text-white">Link 1</a>
+                        <a href="#!" class="text-white"> New York, NY 10012, US</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 2</a>
+                        <a href="#!" class="text-white"> + 01 234 567 88</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 3</a>
+                        <a href="#!" class="text-white">01 234 567 89</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-white">Link 4</a>
+                        <a href="#!" class="text-white">01 744 567 89</a>
                     </li>
                     </ul>
                 </div>
